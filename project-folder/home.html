@@ -41,7 +41,7 @@
             <p>Collections Of Best Products</p>
             <div class="pro-container">
                 <div class="pro">
-                    <img src="../img/products/AMLACTIN-1536x1536.jpeg" alt="Amlactin Body Lotion" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
+                    <img src="../products/AMLACTIN-1536x1536.jpeg" alt="Amlactin Body Lotion" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
                     <div class="des">
                         <span>Body lotion</span>
                         <h5>Amlactin</h5>
@@ -57,7 +57,7 @@
                     <a href="#"><i class="fa-solid fa-shopping-cart"></i></a>
                 </div>
                 <div class="pro">
-                    <img src="../img/products/429472.jpg" alt="Lancome Genifique Face Serum" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
+                    <img src="../products/429472.jpg" alt="Lancome Genifique Face Serum" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
                     <div class="des">
                         <span>Face Serum</span>
                         <h5>Lancome Genifique</h5>
@@ -73,7 +73,7 @@
                     <a href="#"><i class="fa-solid fa-shopping-cart"></i></a>
                 </div>
                 <div class="pro">
-                    <img src="../img/products/3666057220852_02.jpg" alt="Clarins Body Lotion" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
+                    <img src="../products/3666057220852_02.jpg" alt="Clarins Body Lotion" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
                     <div class="des">
                         <span>Body lotion</span>
                         <h5>Clarins Body</h5>
@@ -89,7 +89,7 @@
                     <a href="#"><i class="fa-solid fa-shopping-cart"></i></a>
                 </div>
                 <div class="pro">
-                    <img src="../img/products/3380810378641_02.jpg" alt="Tonic Body Oil" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
+                    <img src="../products/3380810378641_02.jpg" alt="Tonic Body Oil" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
                     <div class="des">
                         <span>Body oil</span>
                         <h5>Tonic oil</h5>
@@ -105,7 +105,7 @@
                     <a href="#"><i class="fa-solid fa-shopping-cart"></i></a>
                 </div>
                 <div class="pro">
-                    <img src="../img/products/3380810288094_01.jpg" alt="ClarinsMen Super Moisture Balm" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
+                    <img src="../products/3380810288094_01.jpg" alt="ClarinsMen Super Moisture Balm" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
                     <div class="des">
                         <span>Face moisturizer</span>
                         <h5>ClarinsMen Super Moisture Balm</h5>
@@ -121,7 +121,7 @@
                     <a href="#"><i class="fa-solid fa-shopping-cart"></i></a>
                 </div>
                 <div class="pro">
-                    <img src="../img/products/dr-teals-coconut.jpg" alt="Dr Teals Coconut Body Lotion" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
+                    <img src="../products/dr-teals-coconut.jpg" alt="Dr Teals Coconut Body Lotion" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
                     <div class="des">
                         <span>Body lotion</span>
                         <h5>Dr teals</h5>
@@ -137,7 +137,7 @@
                     <a href="#"><i class="fa-solid fa-shopping-cart"></i></a>
                 </div>
                 <div class="pro">
-                    <img src="../img/products/dr-teals-citru.jpg" alt="Dr Teals Citrus Body Lotion" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
+                    <img src="../products/dr-teals-coconut.jpg" alt="Dr Teals Citrus Body Lotion" onerror="this.onerror=null;this.src='../img/products/placeholder.jpg';">
                     <div class="des">
                         <span>Body lotion</span>
                         <h5>Dr teals</h5>
@@ -237,7 +237,10 @@
                 } catch (e) {
                     cart = [];
                 }
-                document.getElementById('cart-count').textContent = cart.length;
+                var cartCountElem = document.getElementById('cart-count');
+                if (cartCountElem) {
+                    cartCountElem.textContent = cart.length;
+                }
             }
 
             // Add event listeners to all "add to cart" buttons
