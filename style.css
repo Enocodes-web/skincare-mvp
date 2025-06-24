@@ -756,6 +756,22 @@ footer .copyright {
     cursor: pointer;
     transition: background 0.2s;
 }
+
+#cart-items td {
+  padding: 8px 5px;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.cart-product-img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px;
+    vertical-align: middle;
+}
 .remove-btn:hover {
     background: #e25c3f;
 }
