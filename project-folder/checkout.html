@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - Skincare Shop</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .checkout-container { max-width: 500px; margin: auto; }
+    textarea { width: 100%; height: 150px; margin-top: 10px; padding: 10px; }
+    button, a { display: block; margin-top: 15px; padding: 10px; text-align: center;
+      background: #007bff; color: white; text-decoration: none; border: none; border-radius: 5px; }
+    button:hover, a:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+
+  <div class="checkout-container">
+    <h1>Checkout</h1>
+    <p>Order Summary:</p>
+    <textarea id="order-summary" readonly></textarea>
+
+    <!-- Email Order -->
+    <form method="POST" action="https://formsubmit.co/YOUR_EMAIL" >
+      <input type="hidden" name="order-summary" id="order-summary-hidden">
+      <button type="submit">Place Order via Email</button>
+    </form>
+
+    <!-- WhatsApp Order -->
+    <a id="whatsapp-link" target="_blank">Place Order via WhatsApp</a>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let summaryBox = document.getElementById("order-summary");
+      let hiddenInput = document.getElementById("order-summary-hidden");
+
+      if (cart.length === 0) {
+        summaryBox.value = "No items in cart.";
+        hiddenInput.value = "No items in cart.";
+        document.getElementById("whatsapp-link").style.display = "none";
+        return;
+      }
+
+      let summary = cart.map(item =>
+        `${item.name} x${item.quantity} - ₦${item.price * item.quantity}`
+      ).join("\n");
+
+      summaryBox.value = summary;
+      hiddenInput.value = summary;
+
+      // WhatsApp integration
+      let phone = "2348012345678"; // replace with your WhatsApp number
+      let text = encodeURIComponent("Hello, I want to place an order:\n\n" + summary);
+      document.getElementById("whatsapp-link").href = `https://wa.me/${phone}?text=${text}`;
+    });
+  </script>
+
+</body>
+</html>
+
